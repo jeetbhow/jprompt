@@ -4,6 +4,7 @@ import jprompt.prompt.Prompts;
 
 public class App {
     public static void main(String[] args) {
-        String input = Prompts.input("What's your favourite color? ");
+        boolean confirm = Prompts.confirm("Are you a human? ");
+        System.out.println("You answered: " + confirm);
     }
 }

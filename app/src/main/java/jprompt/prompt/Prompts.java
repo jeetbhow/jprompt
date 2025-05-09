@@ -20,8 +20,18 @@ public class Prompts {
     }
 
     public static String input(String prompt) {
+        terminal.setCursorVisible();
+
         Prompt<String> inputPrompt = new InputPrompt(prompt);
         inputPrompt.run(terminal);
+
+        terminal.setCursorInvisible();
         return inputPrompt.getAnswer();
+    }
+
+    public static boolean confirm(String prompt) {
+        Prompt<Boolean> confirmPrompt = new ConfirmPrompt(prompt);
+        confirmPrompt.run(terminal);
+        return confirmPrompt.getAnswer();
     }
 }

@@ -9,9 +9,8 @@ public class InputPrompt extends Prompt<String> {
     }
 
     @Override
-    public Prompt<String> run(PromptTerminal terminal) {
+    public void run(PromptTerminal terminal) {
         answer = terminal.readLine(prompt);
-        return this;
     }
-    
+
 }
