@@ -35,17 +35,14 @@ public class PromptTerminal {
         return bindingReader.readBinding(km);
     }
 
-    // Read line from input.
     public String readLine(String prompt) {
         return lineReader.readLine(prompt);
     }
 
-    // Add string to the buffer.
     public void print(String str) {
         buffer.append(str);
     }
 
-    // Add char to the buffer.
     public void print(char c) {
         buffer.append(c);
     }
@@ -55,7 +52,6 @@ public class PromptTerminal {
         renderedLines++;
     }
 
-    // Print a string and flush right away.
     public void printAndFlush(String str) {
         buffer.append(str);
         flush();
@@ -88,7 +84,6 @@ public class PromptTerminal {
         renderedLines = 0;
     }
 
-    // Flush terminal
     public void flush() {
         writer.print(buffer.toString());
         terminal.flush();

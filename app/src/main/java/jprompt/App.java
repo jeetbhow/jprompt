@@ -1,16 +1,15 @@
 package jprompt;
 
-import java.io.IOException;
+import java.util.List;
 
-import jprompt.prompt.*;
+import jprompt.prompt.Prompts;
 
 public class App {
     public static void main(String[] args) {
-        try {
-            Prompts.title("JPrompt");
-            Prompts.message("Welcome to JPrompt!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        List<Integer> indices = Prompts.checkbox(
+                "What programming languages do you know? ",
+                "C", "Python", "Java", "C++", "Rust");
+
+        System.out.println(indices);
     }
 }

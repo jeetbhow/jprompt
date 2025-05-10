@@ -19,6 +19,7 @@ repositories {
 dependencies {
     implementation 'org.jline:jline:3.29.0'
     implementation 'com.github.lalyos:jfiglet:0.0.8'
+    implementation 'org.xerial:sqlite-jdbc:3.49.0.0'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

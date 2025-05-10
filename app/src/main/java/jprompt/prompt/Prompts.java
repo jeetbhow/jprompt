@@ -49,6 +49,18 @@ public class Prompts {
         return selectPrompt.getAnswer();
     }
 
+    public static int select(String prompt, List<String> options) {
+        Prompt<Integer> selectPrompt = new SelectPrompt(terminal, prompt, options);
+        selectPrompt.run();
+        return selectPrompt.getAnswer();
+    }
+
+    public static List<Integer> checkbox(String prompt, String... options) {
+        Prompt<List<Integer>> checkboxPrompt = new CheckboxPrompt<>(terminal, prompt, options);
+        checkboxPrompt.run();
+        return checkboxPrompt.getAnswer();
+    }
+
     public static void title(String title) throws IOException {
         terminal.print(FigletFont.convertOneLine(title));
         terminal.flush();
@@ -58,4 +70,5 @@ public class Prompts {
         terminal.print("\n" + message + "\n");
         terminal.flush();
     }
+
 }
