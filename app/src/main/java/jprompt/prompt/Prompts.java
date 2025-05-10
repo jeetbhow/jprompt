@@ -67,6 +67,12 @@ public class Prompts {
         return checkboxPrompt.getAnswer();
     }
 
+    public static int range(String prompt, int min, int max) {
+        Prompt<Integer> spinnerPrompt = new SpinnerPrompt(terminal, prompt, min, max);
+        spinnerPrompt.run();
+        return spinnerPrompt.getAnswer();
+    }
+
     public static boolean yesNo(String prompt) {
         Prompt<Integer> yesNoPrompt = new SelectPrompt(terminal, prompt, new String[] { "Yes", "No" }, false);
         yesNoPrompt.run();
