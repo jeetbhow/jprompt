@@ -79,6 +79,12 @@ public class Prompts {
         return yesNoPrompt.getAnswer() == 0;
     }
 
+    public static int slider(String prompt, int min, int max) {
+        Prompt<Integer> sliderPrompt = new SliderPrompt(terminal, prompt, min, max);
+        sliderPrompt.run();
+        return sliderPrompt.getAnswer();
+    }
+
     public static void title(String title) throws IOException {
         terminal.print(FigletFont.convertOneLine(title));
         terminal.flush();

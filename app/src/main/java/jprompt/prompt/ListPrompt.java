@@ -76,7 +76,6 @@ public class ListPrompt extends Prompt<Integer> {
                 }
             }
         }
-
     }
 
     public void submit() {
