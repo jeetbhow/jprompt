@@ -39,6 +39,10 @@ public class PromptTerminal {
         return lineReader.readLine(prompt);
     }
 
+    public String readLine(String prompt, char mask) {
+        return lineReader.readLine(prompt, mask);
+    }
+
     public void print(String str) {
         buffer.append(str);
     }

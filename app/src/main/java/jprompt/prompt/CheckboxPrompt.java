@@ -2,7 +2,6 @@ package jprompt.prompt;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.jline.keymap.KeyMap;
 

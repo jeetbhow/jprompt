@@ -27,6 +27,12 @@ public class Prompts {
         return inputPrompt.getAnswer();
     }
 
+    public static String password(String prompt) {
+        Prompt<String> passwordPrompt = new InputPrompt(terminal, prompt, '*');
+        passwordPrompt.run();
+        return passwordPrompt.getAnswer();
+    }
+
     public static boolean confirm(String prompt) {
         Prompt<Boolean> confirmPrompt = new ConfirmPrompt(terminal, prompt);
         confirmPrompt.run();
