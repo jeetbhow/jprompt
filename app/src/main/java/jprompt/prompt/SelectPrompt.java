@@ -13,10 +13,18 @@ public class SelectPrompt extends ListPrompt {
         super(terminal, prompt, options);
     }
 
+    public SelectPrompt(PromptTerminal terminal, String prompt, String[] options, boolean isVertical) {
+        super(terminal, prompt, options, isVertical);
+    }
+
     @Override
     public void submit() {
         answer = curr;
-        terminal.reset();
+        if (isVertical) {
+            terminal.reset();
+        } else {
+            terminal.clearLine();
+        }
         terminal.printAndFlush(prompt + options[curr] + "\n");
     }
 

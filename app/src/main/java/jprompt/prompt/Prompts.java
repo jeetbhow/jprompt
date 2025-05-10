@@ -61,6 +61,12 @@ public class Prompts {
         return checkboxPrompt.getAnswer();
     }
 
+    public static boolean yesNo(String prompt) {
+        Prompt<Integer> yesNoPrompt = new SelectPrompt(terminal, prompt, new String[] { "Yes", "No" }, false);
+        yesNoPrompt.run();
+        return yesNoPrompt.getAnswer() == 0;
+    }
+
     public static void title(String title) throws IOException {
         terminal.print(FigletFont.convertOneLine(title));
         terminal.flush();

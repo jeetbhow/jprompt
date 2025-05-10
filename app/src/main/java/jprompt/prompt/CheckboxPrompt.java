@@ -28,7 +28,7 @@ public class CheckboxPrompt<T> extends Prompt<List<Integer>> {
 
     @Override
     public void run() {
-        KeyMap<String> km = KeyMaps.listKeyMap();
+        KeyMap<String> km = KeyMaps.verticalList();
         render();
         terminal.flush();
         while (true) {
