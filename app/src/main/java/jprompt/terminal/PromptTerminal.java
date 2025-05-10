@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
-import org.jline.utils.InfoCmp.Capability;
 import org.jline.keymap.BindingReader;
 import org.jline.keymap.KeyMap;
 import org.jline.reader.LineReader;
@@ -17,6 +16,7 @@ public class PromptTerminal {
     private PrintWriter writer;
     private LineReader lineReader;
     private BindingReader bindingReader;
+    private int renderedLines = 0;
 
     public PromptTerminal() throws IOException {
         terminal = TerminalBuilder.builder()
@@ -29,17 +29,6 @@ public class PromptTerminal {
         writer = terminal.writer();
         buffer = new StringBuilder();
         bindingReader = new BindingReader(terminal.reader());
-        setCursorInvisible();
-    }
-
-    public void setCursorInvisible() {
-        terminal.puts(Capability.cursor_invisible);
-        terminal.flush();
-    }
-
-    public void setCursorVisible() {
-        terminal.puts(Capability.cursor_visible);
-        terminal.flush();
     }
 
     public String readBinding(KeyMap<String> km) {
@@ -61,6 +50,11 @@ public class PromptTerminal {
         buffer.append(c);
     }
 
+    public void println(String str) {
+        print(str + "\n");
+        renderedLines++;
+    }
+
     // Print a string and flush right away.
     public void printAndFlush(String str) {
         buffer.append(str);
@@ -73,12 +67,31 @@ public class PromptTerminal {
     }
 
     public void clearLine() {
-        buffer.append("\033[2K\r");
+        buffer.append("\r\033[2K");
+    }
+
+    public void moveCursorUp() {
+        buffer.append("\033[A");
+    }
+
+    public void moveCursorUp(int lines) {
+        for (int i = 0; i < lines; i++) {
+            buffer.append("\033[A");
+        }
+    }
+
+    public void reset() {
+        for (int i = 0; i < renderedLines; i++) {
+            moveCursorUp();
+            clearLine();
+        }
+        renderedLines = 0;
     }
 
     // Flush terminal
     public void flush() {
         writer.print(buffer.toString());
         terminal.flush();
+        buffer.setLength(0);
     }
 }

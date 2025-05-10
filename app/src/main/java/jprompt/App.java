@@ -1,10 +1,16 @@
 package jprompt;
 
-import jprompt.prompt.Prompts;
+import java.io.IOException;
+
+import jprompt.prompt.*;
 
 public class App {
     public static void main(String[] args) {
-        boolean confirm = Prompts.confirm("Are you a human? ");
-        System.out.println("You answered: " + confirm);
+        try {
+            Prompts.title("JPrompt");
+            Prompts.message("Welcome to JPrompt!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

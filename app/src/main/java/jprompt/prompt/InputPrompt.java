@@ -4,13 +4,13 @@ import jprompt.terminal.PromptTerminal;
 
 public class InputPrompt extends Prompt<String> {
 
-    public InputPrompt(String prompt) {
-        super(prompt);
+    public InputPrompt(PromptTerminal terminal, String prompt) {
+        super(terminal, prompt);
     }
 
     @Override
-    public void run(PromptTerminal terminal) {
-        answer = terminal.readLine(prompt);
+    public void run() {
+        answer = terminal.readLine(getPrompt());
     }
 
 }
