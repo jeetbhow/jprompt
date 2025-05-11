@@ -95,4 +95,14 @@ public class Prompts {
         terminal.flush();
     }
 
+    public static void textbox(String text, int width) {
+        Textbox textbox = new Textbox(terminal, text, width);
+        textbox.render();
+    }
+
+    public static void textbox(String text, int width, boolean autoWrap) {
+        Textbox textbox = new Textbox(terminal, text, width, autoWrap);
+        textbox.render();
+    }
+
 }
