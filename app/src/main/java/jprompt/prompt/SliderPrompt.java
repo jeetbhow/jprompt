@@ -6,10 +6,14 @@ import jprompt.terminal.PromptTerminal;
 import jprompt.keymap.KeyMaps;
 
 public class SliderPrompt extends Prompt<Integer> {
+    private static final char LEFT_BOUND = '[';
+    private static final char RIGHT_BOUND = ']';
+    private static final char BAR = '=';
+    private static final int SEGMENTS = 20;
+    private static final char SPACE = ' ';
     private int min;
     private int max;
     private int val;
-    private int segments = 20;
 
     public SliderPrompt(PromptTerminal terminal, String prompt, int min, int max) {
         super(terminal, prompt);
@@ -40,17 +44,17 @@ public class SliderPrompt extends Prompt<Integer> {
     }
 
     public void render() {
-        int segmentLength = (max - min) / segments;
+        int segmentLength = (max - min) / SEGMENTS;
         int filledSegments = (val - min) / segmentLength;
-        StringBuilder slider = new StringBuilder("[");
-        for (int i = 0; i < segments; i++) {
+        StringBuilder slider = new StringBuilder(LEFT_BOUND);
+        for (int i = 0; i < SEGMENTS; i++) {
             if (i < filledSegments) {
-                slider.append("=");
+                slider.append(BAR);
             } else {
-                slider.append(" ");
+                slider.append(SPACE);
             }
         }
-        slider.append("] ");
+        slider.append(RIGHT_BOUND + SPACE);
         slider.append(val);
         terminal.clearLine();
         terminal.print(prompt + slider.toString());

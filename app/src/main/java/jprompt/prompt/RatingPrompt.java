@@ -65,5 +65,7 @@ public class RatingPrompt extends Prompt<Integer> {
 
     public void submit() {
         answer = value;
+        terminal.reset();
+        terminal.printAndFlush(prompt + value);
     }
 }

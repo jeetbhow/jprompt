@@ -12,7 +12,7 @@ import org.jline.reader.LineReaderBuilder;
 
 public class PromptTerminal {
     private Terminal terminal;
-    private StringBuilder buffer;
+    private StringBuilder buffer; // Buffer all of the output before sending it to the terminal.
     private PrintWriter writer;
     private LineReader lineReader;
     private BindingReader bindingReader;

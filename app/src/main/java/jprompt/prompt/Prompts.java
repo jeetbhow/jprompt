@@ -62,7 +62,7 @@ public class Prompts {
     }
 
     public static List<Integer> checkbox(String prompt, String... options) {
-        Prompt<List<Integer>> checkboxPrompt = new CheckboxPrompt<>(terminal, prompt, options);
+        Prompt<List<Integer>> checkboxPrompt = new CheckboxPrompt(terminal, prompt, options);
         checkboxPrompt.run();
         return checkboxPrompt.getAnswer();
     }
@@ -88,7 +88,7 @@ public class Prompts {
     public static int rating(String prompt) {
         Prompt<Integer> ratingPrompt = new RatingPrompt(terminal, prompt);
         ratingPrompt.run();
-        return ratingPrompt.answer;
+        return ratingPrompt.getAnswer();
     }
 
     public static void title(String title) throws IOException {
@@ -109,6 +109,42 @@ public class Prompts {
     public static void textbox(String text, int width, boolean autoWrap) {
         Textbox textbox = new Textbox(terminal, text, width, autoWrap);
         textbox.render();
+    }
+
+    /**
+     * Creates a new progress bar with default styling.
+     * 
+     * @param prompt The text to display before the progress bar
+     * @param width  The width of the progress bar in characters
+     * @return The ProgressBarPrompt object that can be updated
+     */
+    public static ProgressBarPrompt progressBar(String prompt, int width) {
+        ProgressBarPrompt progressBar = new ProgressBarPrompt(terminal, prompt, width);
+        progressBar.run();
+        return progressBar;
+    }
+
+    /**
+     * Creates a new progress bar with custom styling.
+     * 
+     * @param prompt         The text to display before the progress bar
+     * @param width          The width of the progress bar in characters
+     * @param fillChar       The character to use for filled portions
+     * @param emptyChar      The character to use for empty portions
+     * @param startChar      The character to display at the start of the bar
+     * @param endChar        The character to display at the end of the bar
+     * @param showPercentage Whether to show the percentage after the bar
+     * @return The ProgressBarPrompt object that can be updated
+     */
+    public static ProgressBarPrompt progressBar(String prompt, int width,
+            char fillChar, char emptyChar,
+            char startChar, char endChar,
+            boolean showPercentage) {
+        ProgressBarPrompt progressBar = new ProgressBarPrompt(
+                terminal, prompt, width, fillChar, emptyChar,
+                startChar, endChar, showPercentage);
+        progressBar.run();
+        return progressBar;
     }
 
 }

@@ -8,7 +8,7 @@ import org.jline.keymap.KeyMap;
 import jprompt.keymap.KeyMaps;
 import jprompt.terminal.PromptTerminal;
 
-public class CheckboxPrompt<T> extends Prompt<List<Integer>> {
+public class CheckboxPrompt extends Prompt<List<Integer>> {
     private int curr = 0;
     private String[] options;
     private boolean[] checked;
