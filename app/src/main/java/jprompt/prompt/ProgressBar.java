@@ -2,7 +2,7 @@ package jprompt.prompt;
 
 import jprompt.terminal.PromptTerminal;
 
-public class ProgressBarPrompt extends Prompt<Integer> {
+public class ProgressBar extends Prompt<Integer> {
     private static final char DEFAULT_FILL_CHAR = '█';
     private static final char DEFAULT_EMPTY_CHAR = '░';
     private static final char DEFAULT_START_CHAR = '|';
@@ -17,7 +17,7 @@ public class ProgressBarPrompt extends Prompt<Integer> {
     private final boolean showPercentage;
     private boolean running = true;
 
-    public ProgressBarPrompt(PromptTerminal terminal, String prompt, int width) {
+    public ProgressBar(PromptTerminal terminal, String prompt, int width) {
         super(terminal, prompt);
         this.width = width;
         this.fillChar = DEFAULT_FILL_CHAR;
@@ -27,7 +27,7 @@ public class ProgressBarPrompt extends Prompt<Integer> {
         this.showPercentage = true;
     }
 
-    public ProgressBarPrompt(PromptTerminal terminal, String prompt, int width,
+    public ProgressBar(PromptTerminal terminal, String prompt, int width,
             char fillChar, char emptyChar,
             char startChar, char endChar,
             boolean showPercentage) {

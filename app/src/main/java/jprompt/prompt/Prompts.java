@@ -27,6 +27,12 @@ public class Prompts {
         return inputPrompt.getAnswer();
     }
 
+    public static List<String> multiInput(String prompt) {
+        Prompt<List<String>> multiInputPrompt = new MultiInputPrompt(terminal, prompt);
+        multiInputPrompt.run();
+        return multiInputPrompt.getAnswer();
+    }
+
     public static String password(String prompt) {
         Prompt<String> passwordPrompt = new InputPrompt(terminal, prompt, '*');
         passwordPrompt.run();
@@ -118,8 +124,8 @@ public class Prompts {
      * @param width  The width of the progress bar in characters
      * @return The ProgressBarPrompt object that can be updated
      */
-    public static ProgressBarPrompt progressBar(String prompt, int width) {
-        ProgressBarPrompt progressBar = new ProgressBarPrompt(terminal, prompt, width);
+    public static ProgressBar progressBar(String prompt, int width) {
+        ProgressBar progressBar = new ProgressBar(terminal, prompt, width);
         progressBar.run();
         return progressBar;
     }
@@ -136,15 +142,14 @@ public class Prompts {
      * @param showPercentage Whether to show the percentage after the bar
      * @return The ProgressBarPrompt object that can be updated
      */
-    public static ProgressBarPrompt progressBar(String prompt, int width,
+    public static ProgressBar progressBar(String prompt, int width,
             char fillChar, char emptyChar,
             char startChar, char endChar,
             boolean showPercentage) {
-        ProgressBarPrompt progressBar = new ProgressBarPrompt(
+        ProgressBar progressBar = new ProgressBar(
                 terminal, prompt, width, fillChar, emptyChar,
                 startChar, endChar, showPercentage);
         progressBar.run();
         return progressBar;
     }
-
 }
