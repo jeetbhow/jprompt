@@ -1,8 +1,9 @@
-package jprompt.prompt;
+package jprompt.prompt.number;
 
 import org.jline.keymap.KeyMap;
 
 import jprompt.keymap.KeyMaps;
+import jprompt.prompt.Prompt;
 import jprompt.terminal.PromptTerminal;
 
 public class RatingPrompt extends Prompt<Integer> {
@@ -23,7 +24,7 @@ public class RatingPrompt extends Prompt<Integer> {
 
     @Override
     public void run() {
-        KeyMap<String> km = KeyMaps.horizontalList();
+        KeyMap<String> km = KeyMaps.defaulyKeyMap();
         render();
         terminal.flush();
         while (true) {

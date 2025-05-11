@@ -1,9 +1,10 @@
-package jprompt.prompt;
+package jprompt.prompt.bool;
 
 import org.jline.keymap.KeyMap;
 
 import jprompt.terminal.PromptTerminal;
 import jprompt.keymap.KeyMaps;
+import jprompt.prompt.Prompt;
 
 public class ConfirmPrompt extends Prompt<Boolean> {
     private final char CHECK = '☑';
@@ -16,7 +17,7 @@ public class ConfirmPrompt extends Prompt<Boolean> {
 
     @Override
     public void run() {
-        KeyMap<String> km = KeyMaps.toggleKeyMap();
+        KeyMap<String> km = KeyMaps.defaulyKeyMap();
         render();
         while (true) {
             String key = terminal.readBinding(km);

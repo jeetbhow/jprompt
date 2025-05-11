@@ -1,5 +1,6 @@
-package jprompt.prompt;
+package jprompt.prompt.decorator;
 
+import jprompt.prompt.Prompt;
 import jprompt.terminal.PromptTerminal;
 
 public class ProgressBar extends Prompt<Integer> {

@@ -1,10 +1,11 @@
-package jprompt.prompt;
+package jprompt.prompt.list;
 
 import java.util.List;
 
 import org.jline.keymap.KeyMap;
 
 import jprompt.keymap.KeyMaps;
+import jprompt.prompt.Prompt;
 import jprompt.terminal.PromptTerminal;
 
 public class ListPrompt extends Prompt<Integer> {
@@ -30,7 +31,7 @@ public class ListPrompt extends Prompt<Integer> {
 
     @Override
     public void run() {
-        KeyMap<String> km = isVertical ? KeyMaps.verticalList() : KeyMaps.horizontalList();
+        KeyMap<String> km = KeyMaps.defaulyKeyMap();
         render();
         terminal.flush();
         while (true) {

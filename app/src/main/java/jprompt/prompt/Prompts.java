@@ -3,6 +3,17 @@ package jprompt.prompt;
 import java.io.IOException;
 import java.util.List;
 
+import jprompt.prompt.bool.ConfirmPrompt;
+import jprompt.prompt.decorator.ProgressBar;
+import jprompt.prompt.decorator.Textbox;
+import jprompt.prompt.list.CheckboxPrompt;
+import jprompt.prompt.list.ListPrompt;
+import jprompt.prompt.list.SelectPrompt;
+import jprompt.prompt.number.RatingPrompt;
+import jprompt.prompt.number.SliderPrompt;
+import jprompt.prompt.number.SpinnerPrompt;
+import jprompt.prompt.text.InputPrompt;
+import jprompt.prompt.text.MultiInputPrompt;
 import jprompt.terminal.PromptTerminal;
 import com.github.lalyos.jfiglet.FigletFont;
 

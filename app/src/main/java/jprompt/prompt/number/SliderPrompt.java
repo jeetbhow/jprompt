@@ -1,9 +1,10 @@
-package jprompt.prompt;
+package jprompt.prompt.number;
 
 import org.jline.keymap.KeyMap;
 
 import jprompt.terminal.PromptTerminal;
 import jprompt.keymap.KeyMaps;
+import jprompt.prompt.Prompt;
 
 public class SliderPrompt extends Prompt<Integer> {
     private static final char LEFT_BOUND = '[';
@@ -24,7 +25,7 @@ public class SliderPrompt extends Prompt<Integer> {
 
     @Override
     public void run() {
-        KeyMap<String> km = KeyMaps.horizontalList();
+        KeyMap<String> km = KeyMaps.defaulyKeyMap();
         render();
         terminal.flush();
         while (true) {

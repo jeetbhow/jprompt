@@ -1,4 +1,4 @@
-package jprompt.prompt;
+package jprompt.prompt.list;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.List;
 import org.jline.keymap.KeyMap;
 
 import jprompt.keymap.KeyMaps;
+import jprompt.prompt.Prompt;
 import jprompt.terminal.PromptTerminal;
 
 public class CheckboxPrompt extends Prompt<List<Integer>> {
@@ -27,7 +28,7 @@ public class CheckboxPrompt extends Prompt<List<Integer>> {
 
     @Override
     public void run() {
-        KeyMap<String> km = KeyMaps.verticalList();
+        KeyMap<String> km = KeyMaps.defaulyKeyMap();
         render();
         terminal.flush();
         while (true) {

@@ -1,9 +1,10 @@
-package jprompt.prompt;
+package jprompt.prompt.text;
 
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+import jprompt.prompt.Prompt;
 import jprompt.terminal.PromptTerminal;
 
 public class MultiInputPrompt extends Prompt<List<String>> {

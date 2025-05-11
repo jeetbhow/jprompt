@@ -1,4 +1,4 @@
-package jprompt.prompt;
+package jprompt.prompt.decorator;
 
 import java.util.List;
 

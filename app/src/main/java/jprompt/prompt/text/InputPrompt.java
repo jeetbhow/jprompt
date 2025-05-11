@@ -1,5 +1,6 @@
-package jprompt.prompt;
+package jprompt.prompt.text;
 
+import jprompt.prompt.Prompt;
 import jprompt.terminal.PromptTerminal;
 
 public class InputPrompt extends Prompt<String> {

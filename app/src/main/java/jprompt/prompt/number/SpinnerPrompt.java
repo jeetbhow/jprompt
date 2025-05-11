@@ -1,8 +1,9 @@
-package jprompt.prompt;
+package jprompt.prompt.number;
 
 import org.jline.keymap.KeyMap;
 
 import jprompt.keymap.KeyMaps;
+import jprompt.prompt.Prompt;
 import jprompt.terminal.PromptTerminal;
 
 public class SpinnerPrompt extends Prompt<Integer> {
@@ -19,7 +20,7 @@ public class SpinnerPrompt extends Prompt<Integer> {
 
     @Override
     public void run() {
-        KeyMap<String> km = KeyMaps.verticalList();
+        KeyMap<String> km = KeyMaps.defaulyKeyMap();
         terminal.print(prompt + val);
         terminal.flush();
 
