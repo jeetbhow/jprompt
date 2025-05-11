@@ -85,6 +85,12 @@ public class Prompts {
         return sliderPrompt.getAnswer();
     }
 
+    public static int rating(String prompt) {
+        Prompt<Integer> ratingPrompt = new RatingPrompt(terminal, prompt);
+        ratingPrompt.run();
+        return ratingPrompt.answer;
+    }
+
     public static void title(String title) throws IOException {
         terminal.print(FigletFont.convertOneLine(title));
         terminal.flush();
