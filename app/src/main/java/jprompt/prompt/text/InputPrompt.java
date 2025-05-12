@@ -14,6 +14,10 @@ public class InputPrompt extends Prompt<String> {
 
     @Override
     public void run() {
-        answer = terminal.readLine(getPrompt(), mask);
+        if (mask == '\u0000') {
+            answer = terminal.readLine(getPrompt());
+        } else {
+            answer = terminal.readLine(getPrompt(), mask);
+        }
     }
 }

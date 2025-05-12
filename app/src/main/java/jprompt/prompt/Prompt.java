@@ -6,7 +6,7 @@ public abstract class Prompt<T> {
     protected PromptTerminal terminal;
     protected String prompt;
     protected T answer;
-    protected char mask = 0;
+    protected char mask;
 
     public Prompt(PromptTerminal terminal, String prompt) {
         this.terminal = terminal;

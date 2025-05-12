@@ -114,13 +114,11 @@ public class Prompts {
     }
 
     public static void message(String message) {
-        terminal.print("\n" + message + "\n");
-        terminal.flush();
+        terminal.printAndFlush("\n" + message + "\n\n");
     }
 
     public static void textbox(String text, int width) {
-        Textbox textbox = new Textbox(terminal, text, width);
-        textbox.render();
+        textbox(text, width, true);
     }
 
     public static void textbox(String text, int width, boolean autoWrap) {
